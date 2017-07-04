@@ -3,26 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<title>Train Scheduler</title>
-	
-    <!-- Added link to the jQuery Library -->
-	<!--<script src="https://code.jquery.com/jquery-3.1.1.js"></script>-->
 
-	 <!--Added a link to reset stylesheet 
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">-->
+    <!--JavaScript/jQuery/Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
 
-	<!-- Added a link to Bootstrap -->
+	<!-- Bootstrap link -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <!-- Added a link to css stylesheet -->
+    <!-- Link to css stylesheet -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
     
     <!-- Moment.js Reference -->
-    <!-- <script src="http://momentjs.com/downloads/moment.js"></script>   -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
+    <!-- Google font link -->
+    <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
+    
 </head>
 <body>
-
     <div class="container">
         <div class="jumbotron">
             <h1>Train Scheduler</h1>
@@ -32,7 +32,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Current Train Schedule</div>
             <div class="panel-body">
-                <table class="table table-striped">
+                <table id="trainInfo" class="table table-striped">
                     <thead>
                         <tr>
                         <th>Train Name</th>
@@ -42,7 +42,7 @@
                         <th>Minutes Away</th>
                         </tr>
                     </thead>
-                    <tbody id="trainInfo"></tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
@@ -67,26 +67,10 @@
                         <label for="frequency">Frequency (min)</label>
                         <input type="text" class="form-control" id="frequency" placeholder="How often will the train arrive?">
                     </div>
-                    <input id="submit" class="btn btn-primary" type="submit" value="Submit">
+                    <button id="submit" class="btn btn-primary" type="submit">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <!-- Added link to the jQuery Library -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-
-    <!-- Added a link to javascript file -->
-    <!--<script src="assets/javascript/app.js"></script>-->
-
-    <!-- Added link to firebase database -->
-    <!--<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>-->
-
-    <!--JavaScript/jQuery/Firebase-->
-    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
-    <script src="assets/javascript/app.js"></script>
-
 </body>
 </html>

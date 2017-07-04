@@ -1,6 +1,14 @@
+body {
+    font-family: 'Quantico', sans-serif;
+}
+
 .jumbotron {
     text-align: center;
     background-color: tomato;
     color: white;
     text-shadow: 1px 1px #ff0000;
+}
+
+.panel-primary .panel-heading, #submit {
+    background-color: tomato;
 }

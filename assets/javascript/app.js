@@ -19,12 +19,12 @@ var frequency = "";
 // Button for adding new trains
 $("#submit").on("click", function(event) {
     event.preventDefault();
-
     // Get user input
     trainName = $("#trainName").val().trim();
     destination = $("#destination").val().trim();
     firstTrainTime = $("#firstTrainTime").val().trim();
     frequency = $("#frequency").val().trim();
+    console.log(trainName, destination, firstTrainTime, frequency);
 
     // Temporary local object to hold new train data
     var newTrain = {
@@ -37,9 +37,6 @@ $("#submit").on("click", function(event) {
     // Upload train data to database
     database.push(newTrain);
 
-    // Alert
-    alert("Train successfully added");
-
     // Clear input boxes
     $("#trainName").val("");
     $("#destination").val("");
@@ -47,8 +44,8 @@ $("#submit").on("click", function(event) {
     $("#frequency").val("");
 });
 
-// Firebase event for adding new train to database and a row to html with new train data
-database.on("child-added", function(snapshot) {
+// Firebase event for adding new train data to database and adding a row to html with new train data
+database.on("child_added", function(snapshot) {
 
     console.log(snapshot.val());
 
@@ -64,13 +61,17 @@ database.on("child-added", function(snapshot) {
     console.log("DB First Train Time: " + firstTrainTime);
     console.log("DB Frequency: " + frequency);
 
-    // Calculate next arrival
-    
+    // Calculate next arrival time and minutes until next arrival
+    var firstTimeConverted = moment(firstTrainTime, "hh:mm").subtract(1, "years");
+    var currentTime = moment();
+    var timeDifference = moment().diff(moment(firstTimeConverted), "minutes");
+    var remainder = timeDifference % frequency;
+    var minutesAway = frequency - remainder;
+    var nextArrival = moment().add(minutesAway, "minutes").format("hh:mm A");
 
     // Add train data into table
-    $("#trainInfo").append("<tr><td>" + trainName +
+    $("#trainInfo > tbody").append("<tr><td>" + trainName +
     "</td><td>" + destination + "</td><td>" + frequency +
     "</td><td>" + nextArrival + "</td><td>" + minutesAway +
     "</td></tr>");
-    
 });
