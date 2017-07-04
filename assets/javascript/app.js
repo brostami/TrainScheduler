@@ -1,3 +1,4 @@
+$(document).ready(function(){
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyDT79EI7-_yH_hcFmy8IRaTsUnN5WArOQY",
@@ -24,7 +25,6 @@ $("#submit").on("click", function(event) {
     destination = $("#destination").val().trim();
     firstTrainTime = $("#firstTrainTime").val().trim();
     frequency = $("#frequency").val().trim();
-    console.log(trainName, destination, firstTrainTime, frequency);
 
     // Temporary local object to hold new train data
     var newTrain = {
@@ -74,4 +74,5 @@ database.on("child_added", function(snapshot) {
     "</td><td>" + destination + "</td><td>" + frequency +
     "</td><td>" + nextArrival + "</td><td>" + minutesAway +
     "</td></tr>");
+});
 });
